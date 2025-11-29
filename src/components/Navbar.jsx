@@ -30,7 +30,7 @@ const Navbar = ({ activeHall, onNavigate, guidedTour, onToggleTour }) => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo" onClick={() => onNavigate('entrance')}>
-          bsadnqtri[
+          $bsadnqtri[
         </div>
 
         {/* Desktop Menu */}

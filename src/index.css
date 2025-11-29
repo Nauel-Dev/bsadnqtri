@@ -7,9 +7,9 @@
   --color-bg-panel: #1a1a1a;
   --color-text: #e0e0e0;
   --color-text-muted: #a0a0a0;
-  
+
   --font-main: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  
+
   font-family: var(--font-main);
   line-height: 1.5;
   font-weight: 400;
@@ -36,14 +36,29 @@ html {
 
 body {
   margin: 0;
-  display: block;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--color-bg);
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23FFD700" stroke="black" stroke-width="1.5"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>') 0 24, auto;
+  user-select: none;
+  /* Prevent text selection while drawing */
 }
 
-h1, h2, h3, h4, h5, h6 {
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: auto;
+  /* Ensure clicks still work for modals */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-gold);
   font-weight: 700;
 }

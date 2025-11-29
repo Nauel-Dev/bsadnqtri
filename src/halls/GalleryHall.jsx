@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn } from 'lucide-react';
 
+// Import images
+import img1 from '../assets/G63wD1IXYAArHXe.jpg';
+import img2 from '../assets/G63xBedWoAA2cFD.jpg';
+import img3 from '../assets/G668LVKXEAAGD4A.jpg';
+import img4 from '../assets/G66iCmrW4AAylOb.png';
+import img5 from '../assets/G67Ven4XIAA5Z9W.jpg';
+import img6 from '../assets/G67YiC8WsAANVs3.jpg';
+
 const artPieces = [
-    { id: 1, title: 'Doge Original', category: 'Memes', src: 'https://placehold.co/600x400/gold/black?text=Doge', description: 'The meme that started it all.' },
-    { id: 2, title: 'Pepe Rare', category: 'Memes', src: 'https://placehold.co/600x600/green/black?text=Pepe', description: 'A rare pepe appears.' },
-    { id: 3, title: 'CryptoPunk #1', category: 'NFTs', src: 'https://placehold.co/400x400/blue/white?text=Punk', description: 'One of the first NFTs on Ethereum.' },
-    { id: 4, title: 'Bored Ape', category: 'NFTs', src: 'https://placehold.co/400x400/purple/white?text=BAYC', description: 'The ape that bored the world.' },
-    { id: 5, title: 'Community Art 1', category: 'Fan Art', src: 'https://placehold.co/500x700/red/white?text=FanArt', description: 'Submitted by user @artist.' },
-    { id: 6, title: 'To The Moon', category: 'Memes', src: 'https://placehold.co/800x400/orange/black?text=Moon', description: 'Rocket emoji visualization.' },
+    { id: 1, title: 'Golden Era', category: 'Memes', src: img1, description: 'A glimpse into the golden age of digital wealth.' },
+    { id: 2, title: 'Digital Asset', category: 'NFTs', src: img2, description: 'The tokenization of culture and art.' },
+    { id: 3, title: 'Future Wealth', category: 'Memes', src: img3, description: 'Where we are going, we don\'t need roads.' },
+    { id: 4, title: 'Community Power', category: 'Fan Art', src: img4, description: 'The strength of the collective.' },
+    { id: 5, title: 'Rare Find', category: 'NFTs', src: img5, description: 'A unique piece from the early collection.' },
+    { id: 6, title: 'To The Moon', category: 'Memes', src: img6, description: 'Visualizing the ascent to new heights.' },
 ];
 
 const categories = ['All', 'Memes', 'NFTs', 'Fan Art'];

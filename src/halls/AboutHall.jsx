@@ -112,9 +112,7 @@ const AboutHall = () => {
                     </div>
 
                     <div style={{ display: 'flex', gap: '2rem' }}>
-                        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa' }}><Twitter size={20} /> Twitter</a>
-                        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa' }}><Send size={20} /> Telegram</a>
-                        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa' }}><FileText size={20} /> Whitepaper</a>
+                        <a href="https://x.com/i/communities/1992720963960807785" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#aaa' }}><Twitter size={20} /> Community</a>
                     </div>
                 </div>
             </footer>

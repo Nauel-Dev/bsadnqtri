@@ -13,7 +13,7 @@ const EntranceHall = () => {
                     className="title"
                     style={{ fontSize: '4rem', marginBottom: '1rem' }}
                 >
-                    bsadnqtri[
+                    $bsadnqtri[
                 </motion.h1>
 
                 <motion.p

@@ -8,6 +8,7 @@ import VaultHall from './halls/VaultHall';
 import ShopHall from './halls/ShopHall';
 import AboutHall from './halls/AboutHall';
 import { SoundProvider } from './context/SoundContext';
+import RainbowCanvas from './components/RainbowCanvas';
 import './App.css';
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
   return (
     <SoundProvider>
       <div className="app-container">
+        <RainbowCanvas />
         <Navbar
           activeHall={activeHall}
           onNavigate={handleNavigate}

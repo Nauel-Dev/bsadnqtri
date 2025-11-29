@@ -1,12 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Maximize2, X, TrendingUp, DollarSign, Activity } from 'lucide-react';
 
 const VaultHall = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [tokenData, setTokenData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // DexScreener URL for CA: 4wVtRm2CExz1CN3jp8ujNNhiCSKMVerdYPTXTby4pump
-    const chartUrl = "https://dexscreener.com/solana/4wVtRm2CExz1CN3jp8ujNNhiCSKMVerdYPTXTby4pump?embed=1&theme=dark&trades=0&info=0";
+    const ca = "4wVtRm2CExz1CN3jp8ujNNhiCSKMVerdYPTXTby4pump";
+    const chartUrl = `https://dexscreener.com/solana/${ca}?embed=1&theme=dark&trades=0&info=0`;
+
+    useEffect(() => {
+        const fetchTokenData = async () => {
+            try {
+                const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${ca}`);
+                const data = await response.json();
+                if (data.pairs && data.pairs.length > 0) {
+                    // Get the pair with the highest liquidity (usually the first one, but good to be safe)
+                    const pair = data.pairs[0];
+                    setTokenData({
+                        price: pair.priceUsd,
+                        priceChange: pair.priceChange.h24,
+                        marketCap: pair.fdv, // Fully Diluted Valuation often used as Market Cap for memes
+                        liquidity: pair.liquidity.usd
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching token data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchTokenData();
+        // Refresh every 30 seconds
+        const interval = setInterval(fetchTokenData, 30000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const formatCurrency = (value) => {
+        if (!value) return '---';
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: value < 0.01 ? 6 : 2,
+            maximumFractionDigits: value < 0.01 ? 6 : 2
+        }).format(value);
+    };
+
+    const formatCompact = (value) => {
+        if (!value) return '---';
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            notation: "compact",
+            maximumFractionDigits: 1
+        }).format(value);
+    };
 
     return (
         <section id="vault" className="section vault-hall" style={{ minHeight: '100vh', padding: '4rem 0', background: '#0a0a0a' }}>
@@ -20,7 +71,7 @@ const VaultHall = () => {
                     The <span className="text-gold">Vault</span>
                 </motion.h2>
 
-                <div className="vault-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '2rem', alignItems: 'start' }}>
+                <div className="vault-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '2rem', alignItems: 'start' }}>
 
                     {/* Chart Container */}
                     <motion.div
@@ -72,22 +123,30 @@ const VaultHall = () => {
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#888', marginBottom: '0.5rem' }}>
                                 <DollarSign size={18} color="var(--color-gold)" /> Price
                             </div>
-                            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fff' }}>$142.50</div>
-                            <div style={{ color: '#0f0', fontSize: '0.9rem' }}>+5.2% (24h)</div>
+                            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fff' }}>
+                                {loading ? 'Loading...' : formatCurrency(tokenData?.price)}
+                            </div>
+                            <div style={{ color: tokenData?.priceChange >= 0 ? '#0f0' : '#f00', fontSize: '0.9rem' }}>
+                                {loading ? '' : `${tokenData?.priceChange > 0 ? '+' : ''}${tokenData?.priceChange}% (24h)`}
+                            </div>
                         </div>
 
                         <div className="stat-card" style={{ background: '#1a1a1a', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#888', marginBottom: '0.5rem' }}>
                                 <TrendingUp size={18} color="var(--color-purple)" /> Market Cap
                             </div>
-                            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>$65.2B</div>
+                            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>
+                                {loading ? 'Loading...' : formatCompact(tokenData?.marketCap)}
+                            </div>
                         </div>
 
                         <div className="stat-card" style={{ background: '#1a1a1a', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#888', marginBottom: '0.5rem' }}>
                                 <Activity size={18} color="#00C2FF" /> Liquidity
                             </div>
-                            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>$2.1M</div>
+                            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>
+                                {loading ? 'Loading...' : formatCompact(tokenData?.liquidity)}
+                            </div>
                         </div>
 
                         <button

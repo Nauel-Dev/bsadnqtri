@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useTexture } from '@react-three/drei';
-import coinTexture from '../assets/coin_texture.png';
+import coinTexture from '../assets/artdp.png';
 
 const Coin = ({ onClick }) => {
     const meshRef = useRef();
@@ -27,11 +27,11 @@ const Coin = ({ onClick }) => {
             <cylinderGeometry args={[1, 1, 0.1, 64]} />
             <meshStandardMaterial
                 map={texture}
-                color="#FFD700"
-                metalness={0.8}
-                roughness={0.2}
-                emissive="#FFD700"
-                emissiveIntensity={0.1}
+                color="#ffffff"
+                metalness={0.3}
+                roughness={0.4}
+                emissive="#ffffff"
+                emissiveIntensity={0.05}
             />
         </mesh>
     );
@@ -45,9 +45,9 @@ const CoinCanvas = () => {
     return (
         <div style={{ width: '100%', height: '400px' }}>
             <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-                <ambientLight intensity={0.5} />
+                <ambientLight intensity={1.5} />
+                <directionalLight position={[5, 5, 5]} intensity={2} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-                <pointLight position={[-10, -10, -10]} intensity={0.5} color="#9D4EDD" />
 
                 <Coin onClick={handleCoinClick} />
 
