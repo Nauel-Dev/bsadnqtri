@@ -5,7 +5,7 @@ import { ShoppingBag, ExternalLink } from 'lucide-react';
 const shopItems = [
     { id: 1, title: 'Official Merch', description: 'Hoodies, Tees, and Physical Coins', link: '#', color: '#FFD700' },
     { id: 2, title: 'NFT Collection', description: 'Buy on MagicEden', link: 'https://magiceden.io', color: '#9D4EDD' },
-    { id: 3, title: 'Buy $WEALTH', description: 'Trade on Jupiter', link: 'https://jup.ag', color: '#00C2FF' },
+    { id: 3, title: 'Buy $bsadnqtri[', description: 'Trade on Jupiter', link: 'https://jup.ag/?sell=So11111111111111111111111111111111111111112&buy=4wVtRm2CExz1CN3jp8ujNNhiCSKMVerdYPTXTby4pump', color: '#00C2FF' },
 ];
 
 const ShopHall = () => {

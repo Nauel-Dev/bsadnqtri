@@ -100,7 +100,7 @@ const VaultHall = () => {
                                 border: 'none',
                                 marginTop: '1rem'
                             }}
-                            onClick={() => window.open('https://jup.ag', '_blank')}
+                            onClick={() => window.open('https://jup.ag/?sell=So11111111111111111111111111111111111111112&buy=4wVtRm2CExz1CN3jp8ujNNhiCSKMVerdYPTXTby4pump', '_blank')}
                         >
                             Buy on Jupiter
                         </button>
