@@ -128,4 +128,42 @@ button:hover {
   align-items: center;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  padding: 4rem 0;
+  /* Default padding */
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 0 4rem 0;
+    /* More top padding for mobile to account for fixed header */
+    min-height: auto;
+    /* Allow content to determine height if needed */
+  }
+
+  .container {
+    padding: 0 1.5rem;
+    /* Slightly more side padding */
+  }
+
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Fix grid layouts on mobile */
+  .vault-grid,
+  .art-grid,
+  .shop-grid,
+  .team-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
 }
