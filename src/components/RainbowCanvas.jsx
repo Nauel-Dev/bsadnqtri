@@ -101,7 +101,8 @@ const RainbowCanvas = () => {
                 width: '100%',
                 height: '100%',
                 pointerEvents: 'none', // Allow clicks to pass through
-                zIndex: 9999 // On top of everything
+                zIndex: 9999, // On top of everything
+                touchAction: 'none' // Critical for mobile drawing to prevent scrolling
             }}
         />
     );

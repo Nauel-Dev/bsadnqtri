@@ -134,28 +134,32 @@ button:hover {
 
 @media (max-width: 768px) {
   .section {
-    padding: 6rem 0 4rem 0;
-    /* More top padding for mobile to account for fixed header */
+    padding: 8rem 0 6rem 0;
+    /* Significantly more breathing room */
     min-height: auto;
-    /* Allow content to determine height if needed */
   }
 
   .container {
-    padding: 0 1.5rem;
-    /* Slightly more side padding */
+    padding: 0 2rem;
+    /* More side padding */
   }
 
   h1 {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
+    /* Smaller title */
+    line-height: 1.2 !important;
   }
 
   h2 {
-    font-size: 2rem !important;
+    font-size: 1.75rem !important;
+    margin-bottom: 2rem !important;
   }
 
   p {
     font-size: 1rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.8 !important;
+    /* More line height for readability */
+    margin-bottom: 1.5rem !important;
   }
 
   /* Fix grid layouts on mobile */
@@ -164,6 +168,13 @@ button:hover {
   .shop-grid,
   .team-grid {
     grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+    gap: 3rem !important;
+    /* More space between items */
+  }
+
+  /* Ensure 3D coin doesn't take up too much space */
+  .coin-container {
+    height: 300px !important;
+    margin: 1rem 0 !important;
   }
 }
