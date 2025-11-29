@@ -17,7 +17,7 @@ const ShopHall = () => {
                 className="hall-title"
                 style={{ textAlign: 'center', marginBottom: '4rem', fontSize: '3rem' }}
             >
-                Museum <span className="text-gold">Shop</span>
+                $bsadnqtri[ <span className="text-gold">Shop</span>
             </motion.h2>
 
             <div className="shop-grid" style={{
