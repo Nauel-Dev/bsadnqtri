@@ -9,6 +9,7 @@ import ShopHall from './halls/ShopHall';
 import AboutHall from './halls/AboutHall';
 import { SoundProvider } from './context/SoundContext';
 import RainbowCanvas from './components/RainbowCanvas';
+import ParticlesBackground from './components/ParticlesBackground';
 import './App.css';
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
   return (
     <SoundProvider>
       <div className="app-container">
+        <ParticlesBackground />
         <RainbowCanvas />
         <Navbar
           activeHall={activeHall}

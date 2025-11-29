@@ -1,11 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Twitter, Send, FileText } from 'lucide-react';
+import { Twitter } from 'lucide-react';
+import founderImg from '../assets/founder.png';
+import devImg from '../assets/dev.png';
+import communityImg from '../assets/community.png';
 
 const team = [
-    { id: 1, name: 'Curator', role: 'Founder', img: 'https://placehold.co/150x150/gold/black?text=C' },
-    { id: 2, name: 'Architect', role: 'Dev', img: 'https://placehold.co/150x150/purple/white?text=A' },
-    { id: 3, name: 'Historian', role: 'Community', img: 'https://placehold.co/150x150/blue/white?text=H' },
+    { id: 1, name: 'Founder', role: 'Visionary', img: founderImg },
+    { id: 2, name: 'Dev', role: 'Architect', img: devImg },
+    { id: 3, name: 'Community', role: 'Manager', img: communityImg },
 ];
 
 const AboutHall = () => {
@@ -39,61 +42,32 @@ const AboutHall = () => {
                             style={{
                                 width: '250px',
                                 height: '300px',
-                                perspective: '1000px',
-                                cursor: 'pointer'
+                                position: 'relative',
+                                background: '#1a1a1a',
+                                borderRadius: '16px',
+                                border: '1px solid var(--color-gold-dim)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: '1rem',
+                                boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
                             }}
                         >
-                            <motion.div
+                            <img
+                                src={member.img}
+                                alt={member.name}
                                 style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    position: 'relative',
-                                    transformStyle: 'preserve-3d',
-                                    transition: 'transform 0.6s'
+                                    width: '120px',
+                                    height: '120px',
+                                    borderRadius: '50%',
+                                    marginBottom: '1rem',
+                                    border: '2px solid var(--color-gold)',
+                                    objectFit: 'cover'
                                 }}
-                                whileHover={{ rotateY: 180 }}
-                            >
-                                {/* Front */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    backfaceVisibility: 'hidden',
-                                    background: '#1a1a1a',
-                                    borderRadius: '16px',
-                                    border: '1px solid var(--color-gold-dim)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    padding: '1rem'
-                                }}>
-                                    <img src={member.img} alt={member.name} style={{ borderRadius: '50%', marginBottom: '1rem', border: '2px solid var(--color-gold)' }} />
-                                    <h3 style={{ color: '#fff' }}>{member.name}</h3>
-                                    <span style={{ color: 'var(--color-purple)' }}>{member.role}</span>
-                                </div>
-
-                                {/* Back */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    backfaceVisibility: 'hidden',
-                                    background: 'var(--color-gold)',
-                                    borderRadius: '16px',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    padding: '1rem',
-                                    color: '#000'
-                                }}>
-                                    <h3>Contact</h3>
-                                    <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                                        <Twitter size={24} />
-                                        <Send size={24} />
-                                    </div>
-                                </div>
-                            </motion.div>
+                            />
+                            <h3 style={{ color: '#fff', fontSize: '1.5rem', marginBottom: '0.5rem' }}>{member.name}</h3>
+                            <span style={{ color: 'var(--color-purple)', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{member.role}</span>
                         </motion.div>
                     ))}
                 </div>
@@ -107,7 +81,7 @@ const AboutHall = () => {
             }}>
                 <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
                     <div>
-                        <h3 style={{ color: '#fff', marginBottom: '0.5rem' }}>bsadnqtri[</h3>
+                        <h3 style={{ color: '#fff', marginBottom: '0.5rem' }}>$bsadnqtri[</h3>
                         <p style={{ color: '#666', fontSize: '0.9rem' }}>© 2025 All Rights Reserved.</p>
                     </div>
 
