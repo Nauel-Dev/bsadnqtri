@@ -1,0 +1,116 @@
+:root {
+  --color-gold: #FFD700;
+  --color-gold-dim: #C5A000;
+  --color-purple: #9D4EDD;
+  --color-purple-glow: rgba(157, 78, 221, 0.5);
+  --color-bg: #0a0a0a;
+  --color-bg-panel: #1a1a1a;
+  --color-text: #e0e0e0;
+  --color-text-muted: #a0a0a0;
+  
+  --font-main: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  font-family: var(--font-main);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  display: block;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-purple);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid var(--color-gold);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: transparent;
+  color: var(--color-gold);
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+}
+
+button:hover {
+  background-color: var(--color-gold);
+  color: var(--color-bg);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-panel);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dim);
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
